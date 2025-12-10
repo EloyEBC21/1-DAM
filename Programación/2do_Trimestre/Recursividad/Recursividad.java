@@ -14,7 +14,7 @@ public class Recursividad{
 
         System.out.println(sumaArray(a, i));
         System.out.println(potencia(x, n));
-        System.out.println(busquedaBinaria(a, i, i, i));
+        System.out.println(busquedaBinaria(a, 3, i, i));
         System.out.println(fibrec(5));
         
 
@@ -90,11 +90,39 @@ public class Recursividad{
 
     public static long fibrec(int n){
         
-        
-        
-        return fibrec(n) + fibrec(n-1);
+        if(n <=1){
 
+            return n;
 
+        }
+        
+        return fibrec(n-1) + fibrec(n-2);
+
+    }
+
+    public static long fibMemo(int n, long[] memo){
+
+        if (n <=1) {
+            return n;    
+        }       
+
+        if (memo[n] > 0) {
+            
+            return memo[n];
+
+        }        
+
+        memo[n]= fibMemo(-1, memo) + fibMemo(-2, memo);
+
+        return memo[n];
+
+    }
+
+    /* Acrividad 5 */
+
+    public static void permutar(String s, int l, int r){
+
+        
 
     }
 
