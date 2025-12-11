@@ -120,10 +120,38 @@ public class Recursividad{
 
     /* Acrividad 5 */
 
-    public static void permutar(String s, int l, int r){
+    private static String swap(String s, int i, int j) {
+    char[] array = s.toCharArray();
+    char temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+    return String.valueOf(array);
+}
 
-        
-
+    public static void permutar(String s, int l, int r) {
+        if (l == r) {
+            System.out.println(s);
+            return;
     }
+
+    for (int i = l; i <= r; i++) {
+        s = swap(s, l, i);
+        permutar(s, l + 1, r);
+        s = swap(s, l, i);
+    }
+}
+
+    /* Acividad 6 */
+    
+    public static void hanoi(int n, char origen, char auxiliar, char destino) {
+    if (n == 1) {
+        System.out.println(origen + " -> " + destino);
+        return;
+    }
+
+    hanoi(n - 1, origen, destino, auxiliar);
+    System.out.println(origen + " -> " + destino);
+    hanoi(n - 1, auxiliar, origen, destino);
+}
 
 }
