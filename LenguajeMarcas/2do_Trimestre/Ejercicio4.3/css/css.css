@@ -1,0 +1,73 @@
+body{
+
+    font-family: sans-serif;
+    background-color: #77bbff;
+
+
+}
+
+#header{
+
+    background-color: blanchedalmond;
+    margin-bottom: 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    
+}
+
+#title{
+    
+    text-align: center;
+    font-size: 75px;
+
+
+}
+
+#sub-title{
+
+    text-align: center;
+
+
+}
+
+/* Aliens */
+
+#contentAliens{
+
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: blanchedalmond;
+    margin-bottom: 15px ;
+    margin-top: 15px ;
+
+}
+
+#titleAliens{
+
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#subtitleAliens{
+
+    font-weight: bold;
+    
+}
+
+
+/* Tables */
+
+table,tr,td{
+
+    border: 1px solid;
+    border-collapse: collapse;
+
+}
+
+#table1{
+
+    width: 100%;
+    background-color:  #ffc7f8;
+
+}

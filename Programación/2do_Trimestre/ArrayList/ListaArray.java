@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class ListaArray{
 
-    public static ArrayList<String> alumnos;
+    public static ArrayList<String> alumnos = new ArrayList<String>();
     
     public static Scanner sc = new Scanner(System.in);
 
@@ -13,12 +13,19 @@ public class ListaArray{
 
         do {
             
+            System.out.println();
             System.out.println("Introduce el nombre del siguiente alumno");
+            System.out.println();
             System.out.println("----------------------------------------");
-            System.out.println("Si desea terminar, introduzca 'Fin' ");
-            comprobante=sc.next().toUpperCase();
+            System.out.println();
+            System.out.println("Si desea terminar, introduzca 'FIN' ");
+            System.out.println();
+            System.out.println("----------------------------------------");
+            System.out.print("Nombre alumn@:");
+
+            comprobante=sc.next();
             
-            if (comprobante=="FIN") {
+            if (comprobante.equalsIgnoreCase("fin") ) {
                 
                 break;
 
@@ -27,6 +34,7 @@ public class ListaArray{
                 alumnos.add(comprobante);
 
             }
+
 
 
         } while (true);
