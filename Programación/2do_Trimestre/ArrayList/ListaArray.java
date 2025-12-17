@@ -3,11 +3,18 @@ import java.util.ArrayList;
 
 public class ListaArray{
 
-    public static ArrayList<String> alumnos = new ArrayList<String>();
-    
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args){
+
+        //alumnoEjercicio();
+        listaCompras();
+
+    }
+
+    public static void alumnoEjercicio(){
+
+        ArrayList<String> alumnos = new ArrayList<String>();
 
         String comprobante;
 
@@ -73,6 +80,93 @@ public class ListaArray{
 
             }
             
+        }
+
+    }
+
+    public static void listaCompras(){
+
+        ArrayList<String> listaCompra = new ArrayList<>();
+
+        do {
+
+            String comprobante;
+            
+            System.out.println();
+            System.out.println("Introduce el siguiente producto del listado.");
+            System.out.println();
+            System.out.println("----------------------------------------");
+            System.out.println();
+            System.out.println("Si desea terminar, introduzca 'FIN' ");
+            System.out.println();
+            System.out.println("----------------------------------------");
+            System.out.print("Nombre producto:");
+
+            comprobante=sc.next();
+            
+            if (comprobante.equalsIgnoreCase("fin") ) {
+                
+                break;
+
+            } else {
+
+                listaCompra.add(comprobante);
+
+            }
+
+        } while (true);
+
+        for (String listaProducto : listaCompra) {
+            
+            System.out.println(listaProducto);
+
+        }
+
+        System.out.println(" Introduce el nombre del producto deseado a eliminar:");
+        String comprobante = sc.next();
+        if (listaCompra.contains(comprobante)) {
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println();
+            System.out.println(" El producto " + comprobante + " está en la lista.");
+            System.out.println(" eliminando");
+            for (int i = 5; i > 0; i--) {
+                System.out.print(".");
+            }
+            System.out.println();
+            System.out.println("Eliminado");
+            
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println();
+        } else {
+
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println();
+            System.out.println("El producto " + comprobante + " NO esta en la lista");
+            System.out.println();
+            System.out.println("--------------------------------------------------------------------------------");
+
+        }
+
+        System.out.println(" Introduce la posicion del producto deseado en la lista a eliminar:");
+        String comprobanteNum = sc.next();
+        if (listaCompra.contains(comprobanteNum)) {
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println();
+            System.out.println(" El producto " + comprobanteNum + " está en la lista.");
+            System.out.println(" eliminando");
+            for (int i = 5; i > 0; i--) {
+                System.out.print(".");
+            }
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println();
+        } else {
+
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println();
+            System.out.println("El producto " + comprobanteNum + " NO esta en la lista");
+            System.out.println();
+            System.out.println("--------------------------------------------------------------------------------");
+
         }
 
     }
