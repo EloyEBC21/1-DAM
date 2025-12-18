@@ -89,34 +89,22 @@ public class examen17_12_25{
 
     }
 
-    static int sumarDigitos(int digitos){
+    static int sumarDigitos(int digitos) {
 
-        int comprobante = 0;
-        int digitosPrime = digitos;
         int resultado = 0;
-        int resultadoPrime = 0;
-        int cifra = 1;
+        int numero = digitos; // Usamos una copia para no perder el original si hiciera falta
 
-        for (int i = 0; 10 < digitos; i++) {
-            
-            digitos=digitos/10;
-            comprobante++;
+        // Mientras el número sea mayor que 0, seguimos extrayendo dígitos
+        while (numero > 0) {
+        // 1. Obtenemos el último dígito con el resto de la división por 10
+        resultado += (numero % 10);
 
+        // 2. Quitamos el último dígito dividiendo el número por 10
+        numero = numero / 10;
         }
 
-        for (int i = 0; i <= comprobante; i++) {
-            
-            resultado = digitosPrime%1;
-            resultadoPrime = resultadoPrime + resultado;
-            digitosPrime = digitosPrime%cifra;
-            cifra = cifra*10;
-
-        }
-
-        System.out.println(resultadoPrime);
-
-        return resultadoPrime;
-
+        System.out.println(resultado);
+        return resultado;
     }
 
 }
