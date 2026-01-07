@@ -101,14 +101,15 @@ public class PostNavidad{
             
             for (int j = i; j > 0; j--) {
                 
-                System.out.print("* ");
-
-                
+                System.out.print(" ");
 
             }
 
-            
-            
+            for (int j2 = i; j2 < tamanoTriangulo+1; j2++) {
+                System.out.print("* ");
+
+            }
+
             System.out.println("");
 
         }
