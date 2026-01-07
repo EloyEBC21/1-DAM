@@ -6,8 +6,8 @@ public class PostNavidad{
 
     public static void main(String[] args) {
         
-        //cuadrado();
-        triangulo();
+        cuadrado();
+        //triangulo();
         
     }
 
@@ -24,9 +24,10 @@ public class PostNavidad{
                 System.out.print("*");
             }
             System.out.println();
-
+        }
         /* Sin Relleno */
 
+            /* En caso que sea mayor a 2 imprime la linea de arriba */
   
         if (tamanoCuadrado!=1 && tamanoCuadrado!=2) {
             for (int j = 0; j < tamanoCuadrado; j++) {
@@ -69,14 +70,13 @@ public class PostNavidad{
             
         }
         
+            /* En caso que sea mayor a 2 imprime la linea de abajo */
            
         if (tamanoCuadrado!=1 && tamanoCuadrado!=2) {
             for (int j = 0; j < tamanoCuadrado; j++) {
              System.out.print("* ");
             }
         }
-
-    }
 
     }
 
@@ -94,7 +94,7 @@ public class PostNavidad{
 //            }
 //            System.out.println("");
 //        }
-
+//
         /* Pirámide */
 
         for (int i = tamanoTriangulo; i > 0; i--) {
