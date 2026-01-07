@@ -7,7 +7,7 @@ public class PostNavidad{
     public static void main(String[] args) {
         
         cuadrado();
-        //triangulo();
+        triangulo();
         
     }
 
@@ -78,6 +78,8 @@ public class PostNavidad{
             }
         }
 
+        System.out.println("");
+
     }
 
     public static void triangulo() {
@@ -88,13 +90,13 @@ public class PostNavidad{
 
         /* Triangulo incremental */
 
-//        for (int i = 1; i <= tamanoTriangulo; i++) {
-//            for (int j = 0; j < i; j++) {
-//                System.out.print("* ");
-//            }
-//            System.out.println("");
-//        }
-//
+        for (int i = 1; i <= tamanoTriangulo; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println("");
+        }
+
         /* Pirámide */
 
         for (int i = tamanoTriangulo; i > 0; i--) {
