@@ -71,8 +71,8 @@ table,tr,td,th{
     background-color: #000;
 }
 
-tr:nth-child(even){
-    background-color: #ffa5f3;
+td:nth-child(even), th:nth-child(even) {
+  background-color: #ffa5f3;
 }
 
 #table1{
