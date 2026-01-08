@@ -67,14 +67,6 @@ table,tr,td,th{
 
 }
 
-#table1,tr:hover{
-    background-color: #000;
-}
-
-td:nth-child(even), th:nth-child(even) {
-  background-color: #ffa5f3;
-}
-
 #table1{
 
     width: 100%;
