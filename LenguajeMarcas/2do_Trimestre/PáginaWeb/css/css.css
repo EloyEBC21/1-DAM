@@ -67,6 +67,12 @@ table,tr,td,th{
 
 }
 
+
+
+tr:nth-child(even){
+    background-color: #ffa5f3;
+}
+
 #table1{
 
     width: 100%;
