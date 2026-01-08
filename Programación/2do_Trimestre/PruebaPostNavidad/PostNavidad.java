@@ -189,10 +189,7 @@ public class PostNavidad{
                 tablero[i][7] = " g ";
                 tablero[i][8] = " h ";
             
-            } 
-        }
-
-        for (int i = 0; i <= tablero.length; i++) {
+            }
             if (i==0 || i==tablero.length-1) {
                 
                 tablero[1][i] = " 1 ";
@@ -204,62 +201,20 @@ public class PostNavidad{
                 tablero[7][i] = " 7 ";
                 tablero[8][i] = " 8 ";
             
-            } 
+            }  
         }
 
         /*Ahora pondremos las fichas en el tablero */
 
         /* Bando blanco */
 
-            /* Torres */
-        tablero[1][1] = " \u2656 ";
-        tablero[1][8] = " \u2656 ";
-
-            /* Caballos */
-        tablero[1][2] = " \u2658 ";
-        tablero[1][7] = " \u2658 ";
-
-            /* Alfiles */
-        tablero[1][3] = " \u2657 ";
-        tablero[1][6] = " \u2657 ";
-
-            /* Reina */
-        tablero[1][5] = " \u2655 ";
-
-            /* Rey */
-        tablero[1][4] = " \u2654 ";
-
-        /* Creamos un For para colocar los peones */
-
-        for (int i = 1; i <= 8; i++) {
-            tablero[2][i]=" \u2659 ";
-        }
+        String[] PiezasBlancas = {" \u2656 "," \u2658 "," \u2657 "," \u2654 "," \u2655 "," \u2657 "," \u2658 "," \u2656 "}; 
+        String[] PeonesBlancas = {" \u2659 "," \u2659 "," \u2659 "," \u2659 "," \u2659 "," \u2659 "," \u2659 "," \u2659 "};
 
         /* Y el bando negro */
 
-            /* Torres */
-        tablero[8][1] = " \u265C ";
-        tablero[8][8] = " \u265C ";
-
-            /* Caballos */
-        tablero[8][2] = " \u265E ";
-        tablero[8][7] = " \u265E ";
-
-            /* Alfiles */
-        tablero[8][3] = " \u265D ";
-        tablero[8][6] = " \u265D ";
-
-            /* Reina */
-        tablero[8][4] = " \u265B ";
-
-            /* Rey */
-        tablero[8][5] = " \u265A ";
-
-
-            /* Peones */
-        for (int i = 1; i <= 8; i++) {
-            tablero[7][i]=" \u265F ";
-        }
+        String[] PiezasNegras = {" \u265C "," \u265E "," \u265D "," \u265B "," \u265A "," \u265D "," \u265E "," \u265C "};
+        String[] PeonesNegras = {" \u265F "," \u265F "," \u265F "," \u265F "," \u265F "," \u265F "," \u265F "," \u265F "};
 
         /* Para terminar, rellenaremos los espacioes vacios de la matríz con espacios en blanco o con algún signo */
 
@@ -267,6 +222,13 @@ public class PostNavidad{
             for (int j = 1; j < tablero.length-1; j++) {
                 tablero[i][j] = "   ";
             }
+        }
+
+        for (int i = 1; i <= PeonesBlancas.length; i++) {
+            tablero[1][i]=PiezasBlancas[i-1];
+            tablero[2][i]=PeonesBlancas[i-1];
+            tablero[7][i]=PeonesNegras[i-1];
+            tablero[8][i]=PiezasNegras[i-1];
         }
 
         /* Iteramos con 2 for nuestro tablero */
