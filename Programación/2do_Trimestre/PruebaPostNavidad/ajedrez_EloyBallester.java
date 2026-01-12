@@ -1,122 +1,15 @@
 import java.util.Scanner;
+import java.util.ArrayList; 
+import java.util.List;      
 
-public class PostNavidad{
+public class ajedrez_EloyBallester{
 
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         
-        //cuadrado();
-        //triangulo();
         ajedrez();
         
-    }
-
-    public static void cuadrado(){
-
-        int tamanoCuadrado;
-        System.out.println("Introduce que tán grande quieres el cuadrado:");
-        tamanoCuadrado = sc.nextInt();
-
-        /* Cuadrado */
-
-        for (int a = 0; a < tamanoCuadrado; a++) {
-            for (int j = 0; j < tamanoCuadrado; j++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-        /* Sin Relleno */
-
-            /* En caso que sea mayor a 2 imprime la linea de arriba */
-  
-        if (tamanoCuadrado!=1 && tamanoCuadrado!=2) {
-            for (int j = 0; j < tamanoCuadrado; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-        
-        if (tamanoCuadrado==1) {
-
-            /* Caso de 1 */
-            
-            System.out.println("*");
-            
-        } else if (tamanoCuadrado==2) {
-
-            /* Caso de 2 */
-
-            for (int k = 0; k < 2; k++) {
-                for (int l = 0; l < 2; l++) {
-                    System.out.print("* ");
-                }
-                    System.out.println(" ");
-            }
-
-        } else {
-
-            /* Todos los demas casos */
-
-            for (int i = 1; i < tamanoCuadrado-1; i++) {
-                for (int j = 0; j < tamanoCuadrado; j++) {
-                    if (j==0 || j == tamanoCuadrado-1) {
-                        System.out.print("* ");
-                    } else{
-                        System.out.print("  ");
-                    }
-                }
-                System.out.println(" ");
-            }
-            
-        }
-        
-            /* En caso que sea mayor a 2 imprime la linea de abajo */
-           
-        if (tamanoCuadrado!=1 && tamanoCuadrado!=2) {
-            for (int j = 0; j < tamanoCuadrado; j++) {
-             System.out.print("* ");
-            }
-        }
-
-        System.out.println("");
-
-    }
-
-    public static void triangulo() {
-        
-        int tamanoTriangulo;
-        System.out.println("Introduce el tamaño del triangulo con un número:");
-        tamanoTriangulo = sc.nextInt();
-
-        /* Triangulo incremental */
-
-        for (int i = 1; i <= tamanoTriangulo; i++) {
-            for (int j = 0; j < i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println("");
-        }
-
-        /* Pirámide */
-
-        for (int i = tamanoTriangulo; i > 0; i--) {
-            
-            for (int j = i; j > 0; j--) {
-                
-                System.out.print(" ");
-
-            }
-
-            for (int j2 = i; j2 < tamanoTriangulo+1; j2++) {
-                System.out.print("* ");
-
-            }
-
-            System.out.println("");
-
-        }
-    
     }
 
     public static void ajedrez(){
@@ -127,7 +20,12 @@ public class PostNavidad{
         
         int contador=0;
 
-        //mostrarTablero(tablero);
+        /* Listas para guardar el historial de jugadas */
+        List<String> jugadasJ1 = new ArrayList<>();
+        List<String> jugadasJ2 = new ArrayList<>();
+
+        /* Inicialización previa del tablero antes de entrar al bucle de turnos */
+        inicializarTablero(tablero);
 
         System.out.println();
         System.out.println("Introduce el nombre de el/la Primer/a jugador/a:");
@@ -156,30 +54,27 @@ public class PostNavidad{
             
             mostrarTablero(tablero);
 
-            jugadaTablero(tablero, contador);
-
-            break;
+            /* Pasamos las listas al método para que las rellene */
+            jugadaTablero(tablero, contador, jugadasJ1, jugadasJ2);
 
         }while(true);
 
     }
 
-    public static void mostrarTablero(String[][] tablero){
-
+    public static void inicializarTablero(String[][] tablero) {
         /* Programamos el tablero base */
-
-        /* Ponemos huecos vacios para rellenar la tabla */
-
-        tablero[0][0] = "   ";
-        tablero[0][9] = "   ";
-        tablero[9][0] = "   ";
-        tablero[9][9] = "   ";
 
             /* Primero ponemos las letras/numeros para ayudar a localizar las piezas */
 
         for (int i = 0; i <= tablero.length; i++) {
+            
+            tablero[0][0] = "   ";
+            tablero[0][9] = "   ";
+            tablero[9][0] = "   ";
+            tablero[9][9] = "   ";
+            
             if (i==0 || i==tablero.length-1) {
-                
+
                 tablero[i][1] = " a ";
                 tablero[i][2] = " b ";
                 tablero[i][3] = " c ";
@@ -188,10 +83,7 @@ public class PostNavidad{
                 tablero[i][6] = " f ";
                 tablero[i][7] = " g ";
                 tablero[i][8] = " h ";
-            
-            }
-            if (i==0 || i==tablero.length-1) {
-                
+
                 tablero[1][i] = " 1 ";
                 tablero[2][i] = " 2 ";
                 tablero[3][i] = " 3 ";
@@ -201,7 +93,7 @@ public class PostNavidad{
                 tablero[7][i] = " 7 ";
                 tablero[8][i] = " 8 ";
             
-            }  
+            } 
         }
 
         /*Ahora pondremos las fichas en el tablero */
@@ -218,19 +110,21 @@ public class PostNavidad{
 
         /* Para terminar, rellenaremos los espacioes vacios de la matríz con espacios en blanco o con algún signo */
 
-        for (int i = 3; i < 7; i++) {
-            for (int j = 1; j < tablero.length-1; j++) {
+        for (int i = 1; i < 9; i++) {
+            for (int j = 1; j < 9; j++) {
                 tablero[i][j] = "   ";
             }
         }
 
-        for (int i = 1; i <= PeonesBlancas.length; i++) {
+        for (int i = 1; i < PeonesNegras.length+1; i++) {
             tablero[1][i]=PiezasBlancas[i-1];
             tablero[2][i]=PeonesBlancas[i-1];
             tablero[7][i]=PeonesNegras[i-1];
             tablero[8][i]=PiezasNegras[i-1];
-        }
+        }        
+    }
 
+    public static void mostrarTablero(String[][] tablero){
         /* Iteramos con 2 for nuestro tablero */
 
         for (int i = 0; i < tablero.length; i++) {
@@ -241,20 +135,30 @@ public class PostNavidad{
         }
 
     }
-
-    public static void jugadaTablero(String[][] tablero,int contador){
+    
+    public static void jugadaTablero(String[][] tablero, int contador, List<String> j1, List<String> j2){
 
         String posPieza = "";
-        String posMov;
+        String posMov = "";
         int col = 0;
         int fila = 0;
 
         System.out.println();
-        System.out.println("Selecciona la pieza que desees mover:");
-        System.out.println("Ej: A1 , B5 , G7 , C4");
+        System.out.println("Selecciona la pieza que desees seleccionár:");
+        System.out.println("Ej: A1 , B5 , G7 , C4. Escribe 'FIN' para terminar.");
         System.out.println();
         
         posPieza=sc.next();
+
+        if (posPieza.equalsIgnoreCase("FIN")) {
+            System.out.println("\n--- RESUMEN DE LA PARTIDA ---");
+            System.out.println("Jugadas del Jugador 1: " + j1);
+            System.out.println("Jugadas del Jugador 2: " + j2);
+            System.out.println("-----------------------------");
+            System.exit(0);
+        }
+
+        posPieza = posPieza.toUpperCase();
         fila = Integer.parseInt(posPieza.split("")[1]);
 
         switch (posPieza.split("")[0]) {
@@ -287,11 +191,67 @@ public class PostNavidad{
                 break;
         }
 
-        /* Cambiar ahora mas adelante */
+        int colOrig = col;
+        int filaOrig = fila;
 
-        if (tablero[col][fila] == "   ") {
+        System.out.println();
+        System.out.println("Selecciona a que casilla desees mover la pieza" + tablero[filaOrig][colOrig] + ": " );
+        System.out.println();
             
+        posMov = sc.next();
+
+        if (posMov.equalsIgnoreCase("FIN")) {
+            System.out.println("\n--- RESUMEN DE LA PARTIDA ---");
+            System.out.println("Jugadas del Jugador 1: " + j1);
+            System.out.println("Jugadas del Jugador 2: " + j2);
+            System.out.println("-----------------------------");
+            System.exit(0);
         }
+
+        posMov = posMov.toUpperCase();
+        fila = Integer.parseInt(posMov.split("")[1]);
+
+        switch (posMov.split("")[0]) {
+            case "A":
+                col = 1;
+                break;
+            case "B":
+                col = 2;
+                break;
+            case "C":
+                col = 3;
+                break;
+            case "D":
+                col = 4;
+                break;
+            case "E":
+                col = 5;
+                break;
+            case "F":
+                col = 6;
+                break;
+            case "G":
+                col = 7;
+                break;
+            case "H":
+                col = 8;
+                break;
+            default:
+                System.out.println("Introduce un valor correcto");
+                break;
+        }
+
+        /* Guardamos la jugada en la lista que corresponda según el contador */
+        String registro = posPieza + " -> " + posMov;
+        if (contador % 2 == 1) {
+            j1.add(registro);
+        } else {
+            j2.add(registro);
+        }
+
+        /* Realizamos los movimientos */
+        tablero[fila][col] = tablero[filaOrig][colOrig];
+        tablero[filaOrig][colOrig] = "   ";
 
     }
 
