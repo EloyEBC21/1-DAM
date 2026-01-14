@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Collections;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Iterator;
 
@@ -9,7 +10,7 @@ public class Ejercicios_de_ED{
 
     public static void main(String[] args) {
         
-        Ejercicio1();
+        //Ejercicio1();
         Ejercicio2();
         //Ejercicio3();
         //Ejercicio4();
@@ -104,7 +105,16 @@ public class Ejercicios_de_ED{
 
     public static void Ejercicio2(){
 
-        
+        /* Ejercicio 2 */
+
+        int random = (int) (Math.random()*100)+1;
+
+        while (true) {
+
+            ArrayList<Integer>NumsRand = new ArrayList<Integer>();
+
+
+        }
 
     }
     
