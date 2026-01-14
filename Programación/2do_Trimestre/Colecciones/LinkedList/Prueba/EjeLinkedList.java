@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Iterator;
-public class EDLinkedList{
+public class EjeLinkedList{
     public static void main (String[] args){
     
             //Creamos LinkedList
@@ -25,7 +25,25 @@ public class EDLinkedList{
         
         }
 
-    }
+        //Obtenemos el primer mes, el último y el del medio
 
+            System.out.printf("El primer mes es %s\n",meses.getFirst());
+
+        System.out.printf("El ultimo mes es %s\n",meses.getLast());
+
+        System.out.printf("El mes del medio es %s\n", meses.get(meses.size()/2));
+
+        //Ordenamos
+
+        Collections.sort(meses);
+
+        //Iteramos la estructura con foreach
+
+        for (String mes : meses) {
+
+            System.out.println(mes);
+
+        }
+
+    }
 }
-//Continúa en la siguiente hoja
