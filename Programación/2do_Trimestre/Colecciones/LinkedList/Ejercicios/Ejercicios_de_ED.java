@@ -11,8 +11,8 @@ public class Ejercicios_de_ED{
     public static void main(String[] args) {
         
         //Ejercicio1();
-        Ejercicio2();
-        //Ejercicio3();
+        //Ejercicio2();
+        Ejercicio3();
         //Ejercicio4();
         //Ejercicio5();
         //Ejercicio6();
@@ -107,22 +107,106 @@ public class Ejercicios_de_ED{
 
         /* Ejercicio 2 */
 
+        /* Creamos 2 Intgeres para crear el numero que generara numeros y los numeros aleatorios */
+
         int random = (int) (Math.random()*100)+1;
+        int genRandom = (int) (Math.random()*10)+11;
 
-        while (true) {
+        /* Creamos un ArrayList como nos dice el ejercicio */
 
-            ArrayList<Integer>NumsRand = new ArrayList<Integer>();
+        ArrayList<Integer>NumsRand = new ArrayList<Integer>();
 
+        /* Ahora cada vez que "genRandom" genere un numero aleatorio para que 
+        el for itere ese mismo numero de veces que llenará el ArrayList */
 
+        for (int index = 0; index < genRandom; index++) {
+            NumsRand.add(random);
+            random = (int) (Math.random()*100)+1;
         }
+
+        /* mostramos el resultado de este  */
+
+        System.out.println(NumsRand);
+
+        /* Creamos una variable para los resultados que nos pide el ejercicio */
+
+        int resultado = 0;
+
+        /* Sumamos todos los valores */
+
+        for (int iterable_element : NumsRand) {
+            resultado+=iterable_element;
+        }
+
+        /* Las mostramos */
+
+        System.out.println();
+        System.out.println("La suma de todos los numeros es: " + resultado);
+
+        resultado = resultado / genRandom;
+
+        /* La media de todos los numeros */
+
+        System.out.println();
+        System.out.println("La media de todos los numeros es: " + resultado);
+
+        /* Ordenamos el ArrayList para facilitarnos los ultimos resultados */
+
+        Collections.sort(NumsRand);
+
+        /* Cojemos el primer resultado, ya que lo hemos ordenado sabremos que 100% sera el menor */
+
+        System.out.println();
+        System.out.println("El numero mas bajo es: " + NumsRand.getFirst());
+
+        /* Cojemos el ultimo y sabremos 100% cual es el mayor de todos los numeros */
+
+        System.out.println();
+        System.out.println("El numero mas alto es: " + NumsRand.getLast());
 
     }
     
-    public static void Ejercicio3(){
+    public static void Ejercicio3() {
 
+    System.out.println("Introduce una frase:");
+    String frase = sc.nextLine();
 
+    // Usamos una lista como pila (Stack)
+    ArrayList<String> pila = new ArrayList<>();
+    boolean error = false;
 
+    for (int i = 0; i < frase.length(); i++) {
+        String actual = String.valueOf(frase.charAt(i));
+
+        // 1. Si es apertura, lo añadimos a la pila
+        if (actual.equals("(") || actual.equals("[") || actual.equals("{")) {
+            pila.add(actual);
+        } 
+        // 2. Si es cierre, comprobamos
+        else if (actual.equals(")") || actual.equals("]") || actual.equals("}")) {
+            
+            // Si intentamos cerrar pero no hay nada abierto, hay un error
+            if (pila.isEmpty()) {
+                error = true;
+                break;
+            }
+
+            String ultimoAbierto = pila.remove(pila.size() - 1); // Sacamos el último
+
+            // Comprobamos si el cierre corresponde a la apertura
+            if (actual.equals(")") && !ultimoAbierto.equals("(")) { error = true; break; }
+            if (actual.equals("]") && !ultimoAbierto.equals("[")) { error = true; break; }
+            if (actual.equals("}") && !ultimoAbierto.equals("{")) { error = true; break; }
+        }
     }
+
+    // Es válido si no hubo errores y la pila quedó vacía (todo lo que se abrió se cerró)
+    if (!error && pila.isEmpty()) {
+        System.out.println("SI");
+    } else {
+        System.out.println("NO");
+    }
+}
 
     public static void Ejercicio4(){
 
