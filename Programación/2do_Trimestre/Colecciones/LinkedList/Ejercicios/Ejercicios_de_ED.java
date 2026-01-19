@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Ejercicios_de_ED{
@@ -13,8 +14,8 @@ public class Ejercicios_de_ED{
         //Ejercicio1();
         //Ejercicio2();
         //Ejercicio3();
-        Ejercicio4();
-        //Ejercicio5();
+        //Ejercicio4();
+        Ejercicio5();
         //Ejercicio6();
 
     }
@@ -250,7 +251,18 @@ public class Ejercicios_de_ED{
     
     public static void Ejercicio5(){
 
+        HashMap<String, Integer>UsuarioPassword = new HashMap<String, Integer>();
+        String opcion;
+        String Nombre;
+        String Password;
 
+        System.out.println("Deseas introducir a un nuevo usuario o ");
+
+        for (int i = 0; i < 3; i++) {
+            
+            
+
+        }
 
     }
     
