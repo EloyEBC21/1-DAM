@@ -210,40 +210,43 @@ public class Ejercicios_de_ED{
 
     public static void Ejercicio4(){
 
+        /* Declaramos variables */
+
         ArrayList<Integer> NumerosBingo = new ArrayList<Integer>();
         ArrayList<Integer> NumerosMencionados = new ArrayList<Integer>();
         int numeroTurno;
+
+        /* Hacemos un for para llenar "NumerosBingo" del 1 - 90 */
 
         for (int i = 1; i <= 90; i++) {
             NumerosBingo.add(i);
         }
 
-        do {
-        
+        while (true) {
+
+            /* Hacemos que cree un número aleatorio */
             numeroTurno = (int) (Math.random()*90)+1;
-
-            while (true) {
-                if (NumerosMencionados.contains(numeroTurno)) {
-                    numeroTurno = (int) (Math.random()*90)+1;
-                } else {
-                    NumerosMencionados.add(numeroTurno);
-                }
-
-                if (NumerosMencionados.containsAll(NumerosBingo)) {
-                    break;
-                }
-
+        
+            /* Con un if probamos si el número aleatorio ya esta en la ArrayList */
+            if (NumerosMencionados.contains(numeroTurno)) {
+                /*Si esta hacemos que vuelva a crear uno nuevo */
+                numeroTurno = (int) (Math.random()*90)+1;
+            } else {
+                /* Si no esta añadiremos el número  */
+                NumerosMencionados.add(numeroTurno);
             }
 
+            /*Si todos los números del 1 - 90 están introducidos rompera el while */
             if (NumerosMencionados.containsAll(NumerosBingo)) {
-                    break;
-                }
+                break;
+            }
+
+        }
+
+        /* Imprimirá el ArrayList */
+        System.out.println(NumerosMencionados);        
             
-        } while (true);
-
-        System.out.println(NumerosMencionados);
-
-    }
+    };
     
     public static void Ejercicio5(){
 
