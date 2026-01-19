@@ -12,8 +12,8 @@ public class Ejercicios_de_ED{
         
         //Ejercicio1();
         //Ejercicio2();
-        Ejercicio3();
-        //Ejercicio4();
+        //Ejercicio3();
+        Ejercicio4();
         //Ejercicio5();
         //Ejercicio6();
 
@@ -210,7 +210,38 @@ public class Ejercicios_de_ED{
 
     public static void Ejercicio4(){
 
+        ArrayList<Integer> NumerosBingo = new ArrayList<Integer>();
+        ArrayList<Integer> NumerosMencionados = new ArrayList<Integer>();
+        int numeroTurno;
 
+        for (int i = 1; i <= 90; i++) {
+            NumerosBingo.add(i);
+        }
+
+        do {
+        
+            numeroTurno = (int) (Math.random()*90)+1;
+
+            while (true) {
+                if (NumerosMencionados.contains(numeroTurno)) {
+                    numeroTurno = (int) (Math.random()*90)+1;
+                } else {
+                    NumerosMencionados.add(numeroTurno);
+                }
+
+                if (NumerosMencionados.containsAll(NumerosBingo)) {
+                    break;
+                }
+
+            }
+
+            if (NumerosMencionados.containsAll(NumerosBingo)) {
+                    break;
+                }
+            
+        } while (true);
+
+        System.out.println(NumerosMencionados);
 
     }
     
