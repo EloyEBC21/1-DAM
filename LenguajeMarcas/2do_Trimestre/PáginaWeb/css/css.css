@@ -94,50 +94,60 @@ table,tr,td,th{
 
 /* News */
 
-/* Colores por temática */
-.sports {
+/* Container Styles (Backgrounds and Borders) */
+.sports-container {
     background-color: #e8f5e9;
     border-left: 6px solid #2e7d32;
 }
 
-.science {
+.science-container {
     background-color: #e3f2fd;
     border-left: 6px solid #1565c0;
 }
 
-.celebs {
+.celebs-container {
     background-color: #fff3e0;
     border-left: 6px solid #ef6c00;
 }
 
-.tech {
+.tech-container {
     background-color: #f3e5f5;
     border-left: 6px solid #7b1fa2;
 }
 
-.health {
+.health-container {
     background-color: #ffebee;
     border-left: 6px solid #c62828;
 }
 
-.nature {
+.nature-container {
     background-color: #e0f2f1;
     border-left: 6px solid #00695c;
 }
 
-.politics {
+.politics-container {
     background-color: #eceff1;
     border-left: 6px solid #37474f;
 }
 
-/* Formato básico para legibilidad */
-.news-card {
-    margin: 10px 0;
-    padding: 10px;
+/* Header Styles (Specific Text Colors) */
+.sports-header { color: #1b5e20; }
+.science-header { color: #0d47a1; }
+.celebs-header { color: #e65100; }
+.tech-header { color: #4a148c; }
+.health-header { color: #b71c1c; }
+.nature-header { color: #004d40; }
+.politics-header { color: #263238; }
+
+/* Global helper classes for layout */
+.news-item {
+    margin: 15px 0;
+    padding: 15px;
     font-family: sans-serif;
 }
 
-.category {
-    font-weight: bold;
-    display: block;
+.news-header {
+    margin-top: 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
 }
