@@ -91,3 +91,53 @@ table,tr,td,th{
     width: 20%;
 
 }
+
+/* News */
+
+/* Colores por temática */
+.sports {
+    background-color: #e8f5e9;
+    border-left: 6px solid #2e7d32;
+}
+
+.science {
+    background-color: #e3f2fd;
+    border-left: 6px solid #1565c0;
+}
+
+.celebs {
+    background-color: #fff3e0;
+    border-left: 6px solid #ef6c00;
+}
+
+.tech {
+    background-color: #f3e5f5;
+    border-left: 6px solid #7b1fa2;
+}
+
+.health {
+    background-color: #ffebee;
+    border-left: 6px solid #c62828;
+}
+
+.nature {
+    background-color: #e0f2f1;
+    border-left: 6px solid #00695c;
+}
+
+.politics {
+    background-color: #eceff1;
+    border-left: 6px solid #37474f;
+}
+
+/* Formato básico para legibilidad */
+.news-card {
+    margin: 10px 0;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+.category {
+    font-weight: bold;
+    display: block;
+}
