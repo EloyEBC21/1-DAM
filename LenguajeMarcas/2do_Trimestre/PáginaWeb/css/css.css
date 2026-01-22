@@ -94,7 +94,18 @@ table,tr,td,th{
 
 /* News */
 
-/* Container Styles (Backgrounds and Borders) */
+
+/* Add this rule to make strong elements italic inside news items */
+.news-item strong {
+    font-style: italic;
+}
+
+/* Container Styles (Keep these as they are) */
+.sports-container {
+    background-color: #e8f5e9;
+    border-left: 6px solid #2e7d32;
+}
+
 .sports-container {
     background-color: #e8f5e9;
     border-left: 6px solid #2e7d32;
