@@ -51,16 +51,75 @@ body {
     background-color: #555;
 }
 
-/* News Section */
+/* Layout for Sticky Exercise 4.24 */
+.main-news-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-/* Exercise 4.22: Relative positioning */
+.news-list-content {
+    flex: 1; /* This makes the news take up all the remaining space */
+}
+
+/* Sticky Sidebar Styles*/
+.sticky-links-sidebar {
+    position: sticky;
+    top: 20px;
+    width: 160px;
+    background-color: blanchedalmond;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+.sidebar-title {
+    margin-top: 0;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+.vertical-link-list {
+    list-style: none;
+    padding: 0;
+}
+
+.vertical-link-list li {
+    margin: 12px 0;
+}
+
+.vertical-link-list a {
+    text-decoration: none;
+    color: #1b5e20;
+    font-weight: bold;
+    display: block;
+    transition: 0.3s;
+    font-size: 0.9rem; /* Slightly smaller text to fit the thinner sidebar */
+}
+
+.vertical-link-list a:hover {
+    color: #ef6c00;
+    padding-left: 5px;
+}
+
+/* News Section Styles */
+.news-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
 .relative-news {
     position: relative;
     left: 20px;
     top: 10px;
 }
 
-/* Exercise 4.21bis: Italic strong elements */
 .news-item strong {
     font-style: italic;
 }
@@ -83,19 +142,12 @@ body {
 .nature-header { color: #004d40; }
 .politics-header { color: #263238; }
 
-/* Global helper classes for layout */
-.news-item {
-    margin: 15px 0;
-    padding: 15px;
+.news-body {
+    line-height: 1.6;
+    color: #333;
 }
 
-.news-header {
-    margin-top: 0;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
-
-/* Tables (From your initial CSS) */
+/* Tables Styles */
 table, tr, td, th {
     border: 1px solid;
     padding: 1px;
@@ -107,6 +159,14 @@ table, tr, td, th {
     background-color: #ffc7f8;
 }
 
-#Row1 { width: 30%; }
-#Row2 { width: 50%; }
-#Row3 { width: 20%; }
+#tablasExerciseSpecia {
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+#tablasExerciseSpecia td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
