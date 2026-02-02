@@ -1,0 +1,115 @@
+import java.util.Scanner;
+
+public class actWordle {
+
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        /*
+        Indicar un nº de intentos
+        .charAt .indexOf() .toUpperCase()
+        */
+
+        String adivinar = "GATOS";
+        String intento = "";
+        int intentos = 0;   /* Declaramos variables */
+
+        System.out.println("Introduce una palabra de 5 letras");
+        String palabra = sc.next().toUpperCase(); 
+        
+        intento = comprobarPalabra(palabra,intentos);
+
+        char[] pistas = comparar(intento, adivinar);
+
+        mostrarResultado(intento, pistas);
+
+    }
+
+    public static String comprobarPalabra(String palabra, int intento){
+
+        /*
+        Comprueba si está dentro del nº de intentos
+        Comprueba que la palabra tenga 5 letras
+        */
+
+        if (intento<6) {
+            
+            while (true) { 
+                if (palabra.length()!=5) {
+                    System.out.println("Introduce una palabra con 5 letras");
+                    palabra = sc.next().toUpperCase();
+                } else {break;}
+            }
+
+        } else {finalizarJuego(false, palabra);}
+
+        return palabra;
+
+    }
+
+    public static char[] comparar(String intento, String palabra){
+
+        /*Compara la palabra del intento con la palabra oculta */
+        /* Muestra:
+        O -> para letra y posición correcta
+        X -> para letra incorrecta
+        ? -> para letra correcta en posición incorrecta
+        */
+
+        /* Llenamos un array con los char del string "intento" */
+        char[] comprobarIntento = new char[5];
+        for (int i = 0; i < 5; i++) {
+            comprobarIntento[i] = intento.charAt(i);
+        }
+
+        /* Llenamos un array con los char del string "intento" */
+        char[] comprobarPalabra = new char[5];
+        for (int i = 0; i < 5; i++) {
+            comprobarPalabra[i] = palabra.charAt(i);
+        }
+
+        char[] pistas = new char[5];
+
+        /* Comprobamos los array */
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (comprobarIntento[i]==comprobarPalabra[j]) {
+
+                    /*POR AQUI TE HAS QUEDADO, IMPORTANTE CAMBIAR */
+                    if (true) {
+                        
+                    }
+                }
+            }
+        }
+
+        return pistas;
+    }
+
+    public static void mostrarResultado(String intento, char[] pistas){
+
+        /* Muestra por pantalla el intento, si la palabra es GATOS y ponga SALMO */
+        /*
+        [S][A][L][M][O]
+        [?][O][X][X][?]
+        */
+
+        for (int i = 0; i < intento.length(); i++) {
+            System.out.print("[" + intento.charAt(i) + "]");
+        }
+
+        System.out.println();
+
+        for (char c : pistas) {
+            System.out.print("[" + c + "]");
+        }
+        
+    }
+
+    public static void finalizarJuego(boolean finalizar, String palabra){
+
+        /* Indica si ha ganado y si no "oh que pena la palabra era: palabra" */
+
+    }
+
+}
