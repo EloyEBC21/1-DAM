@@ -71,13 +71,22 @@ public class actWordle {
         char[] pistas = new char[5];
 
         /* Comprobamos los array */
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (comprobarIntento[i]==comprobarPalabra[j]) {
+        for (int i = 0; i < pistas.length; i++) {   /* Este caso es para llenar automaticamente todas las ranuras X como base */
+            pistas[i]='X';
+        }
 
-                    /*POR AQUI TE HAS QUEDADO, IMPORTANTE CAMBIAR */
-                    if (true) {
-                        
+        for (int i = 0; i < pistas.length; i++) {   /* De esta forma comprobamos los casos que las letras posicionadamente correctas se muestren */
+            if (comprobarIntento[i]==comprobarPalabra[i]) {
+                pistas[i]='O';
+            }
+        }
+
+        for (int i = 0; i < pistas.length; i++) {
+            if (pistas[i]!='O') {                   /* Y aqui solamente introduciremos '?' si ya sabemos que esa casilla no es 'O' */
+                for (int j = 0; j < pistas.length; j++) {
+                    if (comprobarIntento[i] == comprobarPalabra[j]) {
+                        pistas[i] = '?';
+                        break;
                     }
                 }
             }
