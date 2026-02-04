@@ -13,15 +13,29 @@ public class actWordle {
         String adivinar = "GATOS";
         String intento = "";
         int intentos = 0;   /* Declaramos variables */
+        
+        while (true) {
 
+        System.out.println();
         System.out.println("Introduce una palabra de 5 letras");
         String palabra = sc.next().toUpperCase(); 
-        
+
         intento = comprobarPalabra(palabra,intentos);
 
         char[] pistas = comparar(intento, adivinar);
 
         mostrarResultado(intento, pistas);
+
+        if (adivinar.equals(intento)) {
+            finalizarJuego(true, adivinar);
+            break;
+        } else if(intentos>=7){
+            finalizarJuego(false, adivinar);
+            break;
+        }
+
+        intentos++;
+        }
 
     }
 
@@ -41,7 +55,7 @@ public class actWordle {
                 } else {break;}
             }
 
-        } else {finalizarJuego(false, palabra);}
+        }
 
         return palabra;
 
@@ -113,11 +127,21 @@ public class actWordle {
             System.out.print("[" + c + "]");
         }
         
+        System.out.println();
+
     }
 
     public static void finalizarJuego(boolean finalizar, String palabra){
 
         /* Indica si ha ganado y si no "oh que pena la palabra era: palabra" */
+
+        if (!finalizar) {
+            System.out.println();
+            System.out.println("oh que pena la palabra era: " + palabra);
+        } else {
+            System.out.println();
+            System.out.println("¡Has ganado!");
+        }
 
     }
 
