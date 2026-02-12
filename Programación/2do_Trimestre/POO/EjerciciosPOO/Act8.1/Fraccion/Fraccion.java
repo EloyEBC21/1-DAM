@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Fraccion{
 
     int numerador, denominador;
@@ -56,8 +54,41 @@ public class Fraccion{
     }
 }
 
-    public void Multiplicar(){}
+    public void Multiplicar(int NewDenominador, int NewNumerador){
 
-    public void Dividir(){}
+        int OldDenominador = this.denominador;
+        int OldNumerador = this.numerador;
+
+        OldDenominador=this.denominador*NewDenominador;
+        OldNumerador=this.numerador*NewNumerador;
+
+        System.out.println();
+        System.out.println(" " + OldNumerador + " ");
+        System.out.println("---------");
+        System.out.println(" " + OldDenominador + " ");
+        System.out.println();
+
+    }
+
+    public void Dividir(int NewDenominador, int NewNumerador){
+
+        int OldDenominador = this.denominador;
+        int OldNumerador = this.numerador;
+
+        OldDenominador=this.denominador/NewNumerador;
+        OldNumerador=this.numerador/NewDenominador;
+
+        System.out.println();
+        System.out.println(" " + OldNumerador + " ");
+        System.out.println("---------");
+        System.out.println(" " + OldDenominador + " ");
+        System.out.println();
+
+    }
+
+    public String toString(){
+        return numerador + " / " + denominador
+        ;
+    }
 
 }
