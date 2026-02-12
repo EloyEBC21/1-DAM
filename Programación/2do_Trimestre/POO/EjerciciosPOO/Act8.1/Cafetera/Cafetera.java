@@ -4,7 +4,7 @@ public class Cafetera {
 
     public Cafetera(){ 
         /* Constructor Base para definir la capaciad Máxima y cantidad Actual */
-        this.capMax = 100;
+        this.capMax = 1000;
         this.cantAct= 50;
     }
 
