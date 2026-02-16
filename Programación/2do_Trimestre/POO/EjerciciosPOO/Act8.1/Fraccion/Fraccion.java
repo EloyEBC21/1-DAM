@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Fraccion{
 
     int numerador, denominador;
@@ -54,6 +56,7 @@ public class Fraccion{
     }
 }
 
+<<<<<<< HEAD
     public void Multiplicar(int NewDenominador, int NewNumerador){
 
         int OldDenominador = this.denominador;
@@ -90,5 +93,10 @@ public class Fraccion{
         return numerador + " / " + denominador
         ;
     }
+=======
+    public void Multiplicar(){}
+
+    public void Dividir(){}
+>>>>>>> refs/remotes/origin/main
 
 }
