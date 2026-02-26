@@ -1,0 +1,40 @@
+body{
+    /* body */
+    font-family: sans-serif;
+}
+.zindex1{
+    /* Posicionamiento*/
+    z-index: 1;
+    position: absolute;
+}
+.zindex2{
+    /* Posicionamiento */
+    z-index: 2;
+    position: absolute;
+
+    /*Centrado*/
+    margin-left: 1%;
+    margin-right: 1%;
+
+    /* Estetica */
+    color: white;
+    margin-top: 25%;
+    font-size: 15px;
+}
+.Blue{
+    /* Posicionamiento */
+    position: absolute;
+    z-index: 2;
+
+    /* Centrado*/
+    margin-left: 29%;
+    margin-top: 7%;
+
+    /* Estetica*/
+    background-color: blue;
+    color: white;
+    text-align: center;
+    width: 50%;
+    height: 33%;
+    border-radius: 75px 15px 75px 15px;
+}
