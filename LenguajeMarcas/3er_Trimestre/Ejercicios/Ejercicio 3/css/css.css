@@ -20,6 +20,12 @@ body {
     border-radius: 5px;
 }
 
+.news-card-box::first-letter{
+    /* Ejercicio 4.26a */
+    font-style: italic;
+    font-size: larger;
+}
+
 /* Clase distinta para el titular de la noticia */
 .news-card-title {
     margin-top: 0;
