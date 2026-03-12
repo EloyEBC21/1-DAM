@@ -1,0 +1,52 @@
+/* Base styles with Roboto */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Global text selection - Exercise 4.26b */
+::selection {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.site-banner {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+/* News container class */
+.news-card-box {
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+/* Specific selection for news cards - Exercise 4.26b */
+.news-card-box ::selection {
+    background-color: #ff5722;
+    color: #ffffff;
+}
+
+.news-card-box::first-letter {
+    /* Exercise 4.26a */
+    font-style: italic;
+    font-size: larger;
+}
+
+/* Distinct class for the news title */
+.news-card-title {
+    margin-top: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Background colors per news theme */
+.tech-theme { background-color: #e3f2fd; }
+.nature-theme { background-color: #e8f5e9; }
+.space-theme { background-color: #f3e5f5; }
+.finance-theme { background-color: #fffde7; }
