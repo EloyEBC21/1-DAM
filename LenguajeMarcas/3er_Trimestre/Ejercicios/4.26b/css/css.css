@@ -1,4 +1,4 @@
-/* Base styles with Roboto */
+/* Estilos base */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #ffffff;
@@ -6,47 +6,74 @@ body {
     padding: 20px;
 }
 
-/* Global text selection - Exercise 4.26b */
-::selection {
-    background-color: #333333;
-    color: #ffffff;
-}
-
+/* Banner y Noticias */
 .site-banner {
     text-align: center;
     padding: 20px;
     border-bottom: 2px solid #eee;
 }
 
-/* News container class */
 .news-card-box {
     margin: 20px auto;
     padding: 25px;
     max-width: 600px;
     border-radius: 5px;
+    position: relative;
 }
 
-/* Specific selection for news cards - Exercise 4.26b */
-.news-card-box ::selection {
-    background-color: #ff5722;
-    color: #ffffff;
-}
-
-.news-card-box::first-letter {
-    /* Exercise 4.26a */
-    font-style: italic;
-    font-size: larger;
-}
-
-/* Distinct class for the news title */
 .news-card-title {
     margin-top: 0;
     font-size: 1.8rem;
     font-weight: 700;
 }
 
-/* Background colors per news theme */
+/* Estilos para el sistema de valoración - Ejercicio 4.37 */
+.news-rating-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #ccc;
+    font-size: 0.9rem;
+}
+
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse; /* Permite lógica de selección visual */
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+/* Ocultar el botón de radio original */
+.rating-stars input {
+    display: none;
+}
+
+/* Estilo de los números de valoración */
+.rating-stars label {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+/* Efecto al pasar el ratón */
+.rating-stars label:hover {
+    background-color: #f0f0f0;
+}
+
+/* Resaltar cuando el radio está seleccionado */
+.rating-stars input:checked + label {
+    background-color: #2196f3;
+    color: white;
+    border-color: #2196f3;
+}
+
+/* Colores de fondo por temática */
 .tech-theme { background-color: #e3f2fd; }
 .nature-theme { background-color: #e8f5e9; }
-.space-theme { background-color: #f3e5f5; }
-.finance-theme { background-color: #fffde7; }
