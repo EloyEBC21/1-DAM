@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global News Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+
+    <header class="site-banner">
+        <h1>Daily Digital News</h1>
+    </header>
+
+    <section class="news-grid-container">
+        <article class="news-card-box tech-theme">
+            <h2 class="news-card-title" data-tooltip="Click to read more about Quantum Computing">New Quantum Computer Reaches Stability</h2>
+            <p>Scientists have achieved a breakthrough in quantum coherence, paving the way for faster processing units.</p>
+            
+            <div class="news-rating-container">
+                <span>Rate this news:</span>
+                <div class="rating-stars">
+                    <input type="radio" name="rate-tech" id="tech-5" value="5"><label for="tech-5">5</label>
+                    <input type="radio" name="rate-tech" id="tech-4" value="4"><label for="tech-4">4</label>
+                    <input type="radio" name="rate-tech" id="tech-3" value="3"><label for="tech-3">3</label>
+                    <input type="radio" name="rate-tech" id="tech-2" value="2"><label for="tech-2">2</label>
+                    <input type="radio" name="rate-tech" id="tech-1" value="1"><label for="tech-1">1</label>
+                </div>
+            </div>
+        </article>
+
+        <article class="news-card-box nature-theme">
+            <h2 class="news-card-title" data-tooltip="Environment news 2026">Reforestation Efforts Double in 2026</h2>
+            <p>Local communities across the globe have successfully planted over 2 billion trees in the last quarter.</p>
+            <div class="news-rating-container">
+                <span>Rate this news:</span>
+                <div class="rating-stars">
+                    <input type="radio" name="rate-nature" id="nat-5" value="5"><label for="nat-5">5</label>
+                    <input type="radio" name="rate-nature" id="nat-4" value="4"><label for="nat-4">4</label>
+                    <input type="radio" name="rate-nature" id="nat-3" value="3"><label for="nat-3">3</label>
+                    <input type="radio" name="rate-nature" id="nat-2" value="2"><label for="nat-2">2</label>
+                    <input type="radio" name="rate-nature" id="nat-1" value="1"><label for="nat-1">1</label>
+                </div>
+            </div>
+        </article>
+
+        <article class="news-card-box space-theme">
+            <h2 class="news-card-title" data-tooltip="Space exploration update">James Webb Telescope Discovers Water Vapor on Exoplanet</h2>
+            <p>The telescope has detected clear signatures of water in the atmosphere of a distant gas giant, boosting hopes for finding habitable worlds.</p>
+            
+            <div class="news-rating-container">
+                <span>Rate this news:</span>
+                <select name="rate-dropdown" class="rating-dropdown">
+                    <option value="" selected disabled>Select a score</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Average</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="1">1 - Terrible</option>
+                </select>
+            </div>
+        </article>
+    </section>
+
+    <section class="newsletter-section">
+        <h3 class="newsletter-header">Subscribe to our Newsletter</h3>
+        <p>Get the latest news directly in your inbox.</p>
+        <form class="newsletter-form" action="#" method="POST">
+            <input type="email" name="user-email" class="email-input" placeholder="Enter your email address" required>
+            <button type="submit" class="submit-button">Subscribe</button>
+        </form>
+    </section>
+
+</body>
+</html>
