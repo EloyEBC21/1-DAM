@@ -1,0 +1,60 @@
+Consulta de datos
+
+A. Sentencia SELECT
+SELECT [ALL | DISTINCTI]
+[expre_colum1,expre_colum2,...,exprecolumn[*]]
+FROM [nombre_tabla, nombre_tabla2; ..., nombre_tablan]
+[WHERE condicion]
+[ORDER BY expre_column [DESC|ASC] [,expre_colum [DESC|ASC]]...];
+
+B. Clausulas de SELECT
+*   FROM: FROM [nombre_tabla1, nombre_tabla2, ..., nombre_tablan]
+*   WHERE: WHRE [WHERE condición]
+    Ej:
+        WHERE NOTA=5
+        WHERE (NOTA>=10) AND (CURSO=1)
+        WHERE (NOTA IS NULL) OR (UPPER(NOM_ALUMN) = 'PEDRO')
+*   ORDER BY: [ORDER BY expre_columna [DESC | ASC][, EXPRE_COLUMNA [DESC|ASC]]...]
+        Ej:
+        SELECT * FROM ALUMNOS ORDER BY NOTA/5;
+        SELECT * FROM ALUMNOS ORDER BY NOM_AULMN, CURSO DESC;
+        SELECT DEPT_NO, DNOMBRE, LOC FROM DEPART ORDER BY 2;
+*   ALL: Recuperar todas las filas, aunque algunas estén repeidas.
+*   DISTINCT: Sólo recupera las filas que son distintas.
+        Ej:
+        Columna DEPT_NO -> TABLA EMPLE
+
+C. Seleccion de columnas
+SELECT [ALL|DISTINCT]
+    [expre_column1, expre_column2, ..., expre_column[*]]
+FROM [nombre_tabla1,nombre_tabla2, ..., nombre_tablan]
+
+SQL > DESC EMPLE
+      Nombre                ¿Nulo?          Tipo
+      ---------------------------------------------
+      EMP_NO                NOT NULL        DECIMAL(4)
+      APELLIDO                              VARCHAR(10)
+      OFICIO                                VARCHAR(10)
+      DIR                                   DECIMAL(4)
+      FECHA_ALT                             DATE
+      SALARIO                               DECIMAL(7,2)
+      COMISION                              DECIMAL(7,2)
+      DEPT_NO               NOT NULL        DECIMAL(2)
+
+SQL > DESC DEPART
+      Nombre                ¿Nulo?          Tipo
+      ---------------------------------------------
+      DEPT_NO               NOT NULL        DECIMAL(4)
+      DNOMBRE                               VARCHAR(10)
+      LOC                                   VARCHAR(10)
+
+SQL > SELECT EMP_NO,APELLIDO,OFICIO,FECHA_ALTA,SALARIO_COMISIÓN,DEPT_NO FROM EMPLE;
+SQL > SELECT * FROM EMPLE;
+
+Seleccionar determinadas columnas
+SELECT DNOMBRE, DEPT_NO FROM DEPART;
+
+CASO PRACTICO
+Seleccionamos de la tabla EMPLE a todos los empleados del departamento 20 (DEPT_NO = 20).
+Además. la consulta de be aparecer ordenada por la columna APELIDO.
+Los campos que hay que consultar son: número de empleado, apellido, oficio y número de departamento.

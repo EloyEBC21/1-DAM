@@ -23,17 +23,18 @@
             </div>
 
             <div class="form-group">
-                <label for="reg-phone">Phone Number (Format: 123 456 789):</label>
-                <input type="tel" id="reg-phone" name="phone" 
-                       pattern="[0-9]{3} [0-9]{3} [0-9]{3}" 
-                       placeholder="123 456 789" required>
+                <label for="reg-dni">DNI (Format: 12345678X):</label>
+                <input type="text" id="reg-dni" name="dni" 
+                       pattern="[0-9]{8}[A-Z]" 
+                       title="8 digits followed by an uppercase letter"
+                       placeholder="12345678X" required>
             </div>
 
             <div class="form-group">
                 <label for="reg-password">Password:</label>
                 <input type="password" id="reg-password" name="password" required>
             </div>
-
+            
             <button type="submit" class="reg-submit-button">Register</button>
         </form>
     </section>

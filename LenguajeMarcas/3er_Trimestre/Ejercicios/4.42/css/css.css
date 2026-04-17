@@ -1,4 +1,4 @@
-/* Using your provided base styles */
+/* Usando los estilos de cap5.png y cap6.png como base */
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -7,13 +7,6 @@ body {
     padding: 20px;
 }
 
-.site-banner {
-    text-align: center;
-    padding: 20px;
-    border-bottom: 2px solid #000;
-}
-
-/* Registration Section Styles from your Base */
 .registration-section {
     margin: 40px auto;
     padding: 30px;
@@ -49,15 +42,10 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-    box-sizing: border-box; /* Previene desbordamiento */
+    box-sizing: border-box; /* Previene el desbordamiento visual */
 }
 
-.form-group input:focus {
-    outline: none;
-    border-color: #2196f3;
-}
-
-/* Visual feedback for the phone format validation */
+/* Feedback visual para cuando el DNI no cumple el patrón */
 .form-group input:invalid:not(:placeholder-shown) {
     border-color: #f44336;
 }
@@ -73,12 +61,7 @@ body {
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s;
     margin-top: 20px;
 }
 
-.reg-submit-button:hover {
-    background-color: #1976d2;
-}
-
-/* CSS Comment: Styles updated to support exercise 4.42 validation */
+/* CSS Comment: Registration styles maintained from project base */
