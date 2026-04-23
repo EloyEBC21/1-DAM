@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        tr:nth-child(even) { background-color: #f2 f2 f2; }
+    </style>
+</head>
+<body>
+    <h1>Últimas lecturas del Sensor</h1>
+    <div id="tabla-datos">Cargando datos...</div>
+
+    <script>
+        async function cargarDatos() {
+            const respuesta = await fetch('datos/data.csv');
+            const texto = await respuesta.text();
+            const lineas = texto.split('\n');
+            
+            let html = '<table>';
+            lineas.forEach((linea, index) => {
+                const columnas = linea.split(',');
+                html += '<tr>';
+                columnas.forEach(col => {
+                    html += index === 0 ? `<th>${col}</th>` : `<td>${col}</td>`;
+                });
+                html += '</tr>';
+            });
+            html += '</table>';
+            document.getElementById('tabla-datos').innerHTML = html;
+        }
+
+        // Cargar cada 5 segundos
+        cargarDatos();
+        setInterval(cargarDatos, 5000);
+    </script>
+</body>
+</html>

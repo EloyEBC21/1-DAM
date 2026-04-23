@@ -1,0 +1,3 @@
+MARIADB_DATABASE:securecorp_db
+MARIADB_ROOT_PASSWORD:admin123
+
