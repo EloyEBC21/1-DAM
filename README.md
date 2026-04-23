@@ -10,9 +10,9 @@ Este repositorio funciona como mi bitácora técnica, documentando mi evolución
 
 Para mantener la coherencia en todos los ejercicios, sigo estos estándares de desarrollo:
 
-* **🌍 Idiomas:** Las explicaciones y documentación están en **Español**, mientras que el código y el contenido de los ejercicios se mantienen estrictamente en **Inglés**.
+* **🌍 Idiomas:** Las explicaciones y documentación están en **Español**, mientras que el código y el contenido de los ejercicios se mantienen estrictamente en **Inglés y/o Español**.
 * **☕ Java:** Implementación de lógica y POO, utilizando siempre comentarios de bloque `/* */` para la documentación interna.
-* **🌐 Web (HTML/CSS):** * Uso de rutas personalizadas para estilos: `<link rel="stylesheet" href="css/css">`.
+* **🌐 Web (HTML/CSS):**
     * Comentarios en HTML siguiendo el formato estándar ``.
     * Uso de clases distintas para contenedores de noticias y sus encabezados.
 
@@ -40,7 +40,7 @@ Los ejercicios están organizados por carpetas según la tecnología principal:
 ## 📫 Contacto
 
 Si tienes alguna duda o sugerencia sobre mis soluciones:
-* **GitHub**: [@tu-usuario](https://github.com/tu-usuario)
+* **GitHub**: [@EloyEBC21](https://github.com/EloyEBC21)
 
 ---
 ⭐ _Si este repositorio te resulta útil, ¡no olvides darle una estrella!_
