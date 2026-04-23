@@ -1,0 +1,67 @@
+/* Usando los estilos de cap5.png y cap6.png como base */
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.registration-section {
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 600px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.registration-header {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Previene el desbordamiento visual */
+}
+
+/* Feedback visual para cuando el DNI no cumple el patrón */
+.form-group input:invalid:not(:placeholder-shown) {
+    border-color: #f44336;
+}
+
+.reg-submit-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* CSS Comment: Registration styles maintained from project base */

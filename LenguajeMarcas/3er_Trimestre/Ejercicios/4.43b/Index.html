@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Registration</title>
+    <style>
+        /* General reset and page centering */
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 20px;
+            color: #111;
+        }
+
+        .auth-page-wrapper {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Logo styles */
+        .logo-box-centered {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .domain-ext {
+            font-size: 12px;
+            margin-left: 1px;
+        }
+
+        /* Main Auth Card */
+        .auth-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px 26px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-title {
+            font-weight: 400;
+            font-size: 28px;
+            margin-bottom: 14px;
+            margin-top: 0;
+        }
+
+        /* Form groups and labels */
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .input-group input {
+            width: 100%;
+            height: 31px;
+            padding: 3px 7px;
+            border: 1px solid #a6a6a6;
+            border-radius: 3px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #e77600;
+            box-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
+        }
+
+        /* Primary Button - Solid Yellow */
+        .btn-primary {
+            width: 100%;
+            background-color: #f0c14b;
+            border: 1px solid #a88734;
+            color: #111;
+            padding: 7px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-size: 13px;
+        }
+
+        .btn-primary:hover {
+            background-color: #edb021;
+        }
+
+        /* Links and typography */
+        .legal-text {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 18px;
+        }
+
+        .legal-text a, .business-link, .signin-section a {
+            color: #0066c0;
+            text-decoration: none;
+        }
+
+        .legal-text a:hover, .business-link:hover, .signin-section a:hover {
+            color: #c45500;
+            text-decoration: underline;
+        }
+
+        /* Dividers */
+        .divider {
+            height: 1px;
+            border-top: 1px solid #e7e7e7;
+            margin: 22px 0;
+            background: linear-gradient(to right, #fff, #e7e7e7, #fff);
+        }
+
+        .business-section p {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .business-link {
+            font-size: 13px;
+        }
+
+        .signin-section {
+            font-size: 13px;
+        }
+
+        .signin-section span {
+            font-size: 10px;
+            color: #555;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-page-wrapper">
+        
+        <div class="logo-box-centered">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" width="103">
+            <span class="domain-ext">.es</span>
+        </div>
+
+        <div class="auth-card">
+            <h1 class="form-title">Create account</h1>
+
+            <form action="#">
+                <div class="input-group">
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" placeholder="First and last name">
+                </div>
+
+                <div class="input-group">
+                    <label for="contact">Mobile number or email</label>
+                    <input type="text" id="contact">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="At least 6 characters">
+                    </div>
+
+                <div class="input-group">
+                    <label for="password-confirm">Re-enter password</label>
+                    <input type="password" id="password-confirm">
+                </div>
+
+                <button type="submit" class="btn-primary">Continue</button>
+            </form>
+
+            <div class="legal-text">
+                By creating an account, you agree to Amazon's 
+                <a href="#">Conditions of Use</a> and 
+                <a href="#">Privacy Notice</a>.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="business-section">
+                <p class="business-title">Buying for work?</p>
+                <a href="#" class="business-link">Create a free business account</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="signin-section">
+                Already have an account? <a href="#">Sign in <span>&#9656;</span></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

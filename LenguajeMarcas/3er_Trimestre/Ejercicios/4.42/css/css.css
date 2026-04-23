@@ -1,67 +1,104 @@
-/* Usando los estilos de cap5.png y cap6.png como base */
-
+/* General reset and page centering */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #ffffff;
+    font-family: "Arial", sans-serif;
+    background-color: #fcfcfc; /* Very light gray background */
     margin: 0;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 20px;
+    color: #111;
 }
 
-.registration-section {
-    margin: 40px auto;
-    padding: 30px;
-    max-width: 600px;
+.auth-page-wrapper {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo styles */
+.logo-box-centered {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+}
+
+.domain-ext {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* Main Auth Card */
+.auth-card {
     background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px 26px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
 }
 
-.registration-header {
+.form-title {
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 14px;
     margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #333;
-    text-align: center;
 }
 
-.form-group {
-    margin-bottom: 15px;
+/* Form groups and labels */
+.input-group {
+    margin-bottom: 12px;
 }
 
-.form-group label {
+.input-group label {
     display: block;
-    margin-bottom: 5px;
+    font-size: 13px;
     font-weight: 700;
-    font-size: 0.9rem;
-    color: #555;
+    margin-bottom: 2px;
 }
 
-.form-group input {
+.input-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box; /* Previene el desbordamiento visual */
+    height: 31px;
+    padding: 3px 7px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.1s linear;
 }
 
-/* Feedback visual para cuando el DNI no cumple el patrón */
-.form-group input:invalid:not(:placeholder-shown) {
-    border-color: #f44336;
+/* Amazon's signature orange focus */
+.input-group input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
 }
 
-.reg-submit-button {
-    display: block;
+.info-text {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #111;
+}
+
+.info-text i {
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #0066c0;
+    margin-right: 4px;
+}
+
+/* Primary Button with gradient */
+.btn-primary {
     width: 100%;
-    padding: 12px;
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 700;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    padding: 7px 0;
+    border-radius: 3px;
     cursor: pointer;
-    margin-top: 20px;
-}
-
-/* CSS Comment: Registration styles maintained from project base */
+    margin-top: 12}

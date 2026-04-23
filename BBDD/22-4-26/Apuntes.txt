@@ -1,0 +1,70 @@
+SQL > SELECT EMP_NO,APELLIDO,OFICIO,DEPT_NO FROM EMPLE WHERE DEPT_NO = 20 ORDER BY APELLIDO;
+
+EMP_NO  APELLIDO OFICIO DEPT_NO
+
+Crear de los empleados cuyo oficio sea analista ordenado por numero de empleado;
+
+SQL > SELECT * FROM EMPLE WHERE OFICIO = 'ANALISTA' ORDER BY EMP_NO;
+
+Consulta: seleccionar de la tabla empleados aquellas filas del departamento 10 y cuyo oficio sea analista se debe ordenar de forma descendente por apellido y tmb de manera descendente por numero de empleado.
+
+Mi version:
+SQL > SELECT * FROM EMPLE WHERE DEPT_NO = 10, OFICIO = 'ANALISTA' ORDER BY APELLIDO DESC, EMP_NO DESC;
+
+
+Rectificación:
+SQL > SELECT * FROM EMPLE WHERE DEPT_NO = 10 AND OFICIO = 'ANALISTA' ORDER BY APELLIDO DESC AND EMP_NO DESC;
+
+CREAR Y UTILIZAR ALIAS DE COLUMNAS
+
+SQL -> SELECT DNOMBRE "Departartamento", DEPT_NO "Número departamento" FROM DEPART;
+
+Departamento        Número departamento;
+---------------------------------------
+CONTABILIDAD        10
+INVESTIGACIÓN       20
+VENTAS              30
+PRODUCCIÓN          40
+
+OPERADORES ARITMETICOS
++
+-
+*
+/
+
+caso
+
+SQL -> DESC NOTAS_AULMONS;
+
+Nombre          ¿Nulo?          Tipo
+---------------------------------------
+NOMBRE_ALUMNO   NOT NULL        VARCHAR(30)
+NOTA1                           DECIMAL(2)
+NOTA2                           DECIMAL(2)
+NOTA3                           DECIMAL(2)
+
+SQL -> SELECT * FROM NOTAS_ALUMNOS
+
+NOMBRE_ALUMNO           NOTA1           NOTA2           NOTA3
+-------------------------------------------------------------
+Gómez Cárcel, Victor      5               5               5
+Sayas Alberola, Javier    7               6               8
+Gómez Gómez, Jaime        7               5               5
+Arguedas Perez, Pilar     6               9               8
+
+SQL > SELECT NOMBRE_ALUMNO "Nombre Alumno", (NOTA1+NOTA2+NOTA3)/3"Nota Media" FROM NOTAS_ALUMNOS;
+
+Nombre Alumno             Nota Media
+-------------------------------------
+Gómez Cárcel, Victor      5
+Sayas Alberola, Javier    7
+Gómez Gómez, Jaime        5.66666
+Arguedas Perez, Pilar     7.66666
+
+
+Si queremos saber si un valor es nulo podemos introducir:
+SQL > SELECT APELLIDOS FROM EMPLE WHERE COMISION IS NULL;
+
+en cambio si queremos saber si no es nulo:
+SQL > SELECT APELLIDOS FROM EMPLE WHERE COMISION IS NOT NULL;
+
