@@ -1,0 +1,35 @@
+services:
+  database:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD:admin123
+      - MYSQL_DATABASE:securecorp_db
+    networks:
+      red-backend
+    restart: always
+    volumes:
+      - mariadb_data:/var/lib/mysql
+  worker:
+    image: securecorp/worker:v1
+    environment:
+      - APP_MODE=Exam_Audit
+    networks:
+      - red-backend
+    volumes:
+      - shared_logs:/data
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:8080"
+    networks:
+      - red-backend
+      - red-frontend
+    volumes:
+      - ./html:/usr/share/nginx
+      - shared_logs:/usr/share/nginx/html/logs
+    depends_on:
+      - database
+      - worker
+volumes:
+  shared_logs:
+  mariadb_data:

@@ -1,0 +1,88 @@
+============================================================
+       CHEATSHEET DE DOCKER Y DOCKER COMPOSE 2026
+============================================================
+
+--- COMANDOS DE DOCKER COMPOSE (Gestión del Proyecto) ---
+
+# Levanta todos los servicios del proyecto en segundo plano
+docker compose up -d
+
+# Reconstruye las imágenes (obligatorio si cambias scripts o Dockerfile) y levanta
+docker compose up -d --build
+
+# Detiene y ELIMINA contenedores y redes creados por el compose
+docker compose down
+
+# Detiene y elimina contenedores, redes Y TAMBIÉN los volúmenes de datos
+docker compose down -v
+
+# Muestra el estado de los contenedores de este proyecto (nombres, puertos, estado)
+docker compose ps
+
+# Muestra la lista de todos los contenedores (incluidos los que dieron error)
+docker compose ps -a
+
+# Ver los logs (mensajes de consola) de todos los servicios en tiempo real
+docker compose logs -f
+
+# Ver los logs de un único servicio específico (ejemplo: del servicio 'iot-app')
+docker compose logs -f iot-app
+
+
+--- COMANDOS DE DOCKER CLI (Contenedores Individuales) ---
+
+# Ejecuta un comando dentro de un contenedor que ya está corriendo (ej: ver el CSV)
+docker exec -it mi-sensor-frontend cat /var/www/localhost/htdocs/datos/data.csv
+
+# Abre una terminal (shell) interactiva dentro del contenedor para investigar
+docker exec -it mi-sensor-frontend sh
+
+# Comprueba qué puertos están escuchando realmente dentro del contenedor
+docker exec -it mi-sensor-frontend netstat -tuln
+
+# Lista todos los procesos que se están ejecutando dentro del contenedor
+docker exec -it mi-sensor-frontend ps aux
+
+# Borra un contenedor específico (debe estar parado primero)
+docker rm mi-sensor-frontend
+
+
+--- COMANDOS DE REDES Y VOLÚMENES ---
+
+# Lista todos los volúmenes creados en el sistema
+docker volume ls
+
+# Borra un volumen específico (cuidado: se borran los datos guardados)
+docker volume rm nombre_del_volumen
+
+# Lista todas las redes de Docker en el sistema
+docker network ls
+
+
+--- LIMPIEZA Y MANTENIMIENTO (Comandos de "Reset") ---
+
+# Borra TODA la caché de construcción de Docker (soluciona errores raros de build)
+docker builder prune -f
+
+# Borra contenedores parados, redes no usadas e imágenes sin nombre (limpieza general)
+docker system prune -f
+
+# Reinicia el servicio de Docker en el sistema (por si se bloquea la comunicación)
+sudo systemctl restart docker
+
+============================================================
+
+# Lista todas las redes de Docker
+docker network ls
+
+# Ver detalles de una red (IPs de los contenedores conectados, gateway, etc.)
+docker network inspect <nombre_red>
+
+# Crear una red manualmente (fuera de Compose)
+docker network create mi_red_especial
+
+# Conectar un contenedor que ya está corriendo a una red
+docker network connect mi_red_especial mi-sensor-frontend
+
+# Desconectar un contenedor de una red
+docker network disconnect mi_red_especial mi-sensor-frontend

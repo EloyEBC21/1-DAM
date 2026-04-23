@@ -1,0 +1,53 @@
+# Llamamos a los servicios
+services:
+
+# Nombre del servicio DENTRO del docker-compose
+  iot-app:
+
+# Busca directamente un archivo Dockerfile en el directorio actual
+    build: .
+
+# No hay mucho misterio
+    container_name: mi-sensor-frontend
+
+# El puerto por el que va a salir el contenedor
+    ports:
+      - "8080:80"
+
+    volumes:
+# Creo los volumenes de ambas maneras:
+
+      # Blind Mount: para crear directamente dentro del contenedor esta infraestructura
+      - ./html:/var/html/www/localhost/htdocs
+
+      # Named Moun: para crear un volumen con nombre que usara este caso nuestro sensor.sh
+      - sensor-data:/var/www/localhost/htdocs/datos
+    environment:
+      - INTERVALO=5 # Intervalo entre lecturas del sensor
+      - REDIS_HOST=cache   # Nombre del servicio de abajo (DNS interno)
+      - REDIS_PORT=6379
+    depends_on:
+      - cache              # Espera a que Redis esté listo para arrancar el sensor
+
+  # --- SERVICIO BACKEND: Base de datos Redis ---
+  cache:
+    image: redis:alpine
+    container_name: redis_backend_container
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes # Activa el guardado en el disco cada segundo
+
+    # No mapeamos puertos al exterior para que sea más seguro. 
+    # Solo iot-app puede hablar con él internamente.
+
+    # Si queremos que se pueda ver la bbdd desde nuestro ordenador usaremos:
+    # ports:
+    #  - "6379:6379"
+    # pero como no lo mapeamos para que no salga a internet es mas seguro.
+
+# --- DECLARACIÓN DE VOLÚMENES ---
+
+# Esto es obligatorio para usar volúmenes con nombre (Named Volumes)
+volumes:
+  sensor-data:
+  redis-data:
