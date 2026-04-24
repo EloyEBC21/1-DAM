@@ -1,0 +1,136 @@
+MANIPULACION DE DATOS
+---------------------
+
+INSERT INTO NombreTabla [(columna [, columna]...)];
+VALUES (VALOR [,VALOR]);
+
+tabla PROFESIORES
+SQL -> DESC PROFESIORES
+
+Nombre          ¿Nulo?          Tipo
+-------         -------         --------
+COD_CENTRO      NOT NULL        DECIMAL(4)
+DNI                             VARCHAR(10)
+APELLIDOS                       VARCHAR(20)
+ESPECIALIDAD                    VARCHAR(30)
+
+COD_CENTRO      DNI             APELLIDOS                   ESPECIALIDAD
+----------      ----------      ----------                  -------------
+10              111235          Martínez Salas, Fernando    INFORMÁTICA
+10              123612          Bueno Zarco, Elisa          MATEMATICAS
+10              762341          Montes García, M.Pilar      MATEMATICAS
+15              213479          Ramos Ruiz Luis             LENGUA
+15              471982          Rivera Silvestre, Ana       DIBUJO
+15              192873          De Luas Fdez, M.Angel       LENGUA
+22              935723          Ruíz Lafuente, Manuel       MATEMATICAS
+45              612837          Serrano Laguía, María       INFORMÁTICA
+
+INSERT INTO PROFESORES (APELLIDOS, ESPECIALIDAD, COD_CENTRO)
+VALUES ('Quiroga Martín, Isabel','INFORMÁTICA',45);
+
+COD_CENTRO      DNI             APELLIDOS                   ESPECIALIDAD
+----------      ----------      ----------                  -------------
+10              111235          Martínez Salas, Fernando    INFORMÁTICA
+10              123612          Bueno Zarco, Elisa          MATEMATICAS
+10              762341          Montes García, M.Pilar      MATEMATICAS
+15              213479          Ramos Ruiz Luis             LENGUA
+15              471982          Rivera Silvestre, Ana       DIBUJO
+15              192873          De Luas Fdez, M.Angel       LENGUA
+22              935723          Ruíz Lafuente, Manuel       MATEMATICAS
+45              612837          Serrano Laguía, María       INFORMÁTICA
+45                              Quiroga Martín, Isabel      INFORMÁTICA
+
+INSERT INTO profesores
+VALUES (22,'234012','Gómez Cárcel, Victor','HISTORIA');
+
+COD_CENTRO      DNI             APELLIDOS                   ESPECIALIDAD
+----------      ----------      ----------                  -------------
+10              111235          Martínez Salas, Fernando    INFORMÁTICA
+10              123612          Bueno Zarco, Elisa          MATEMATICAS
+10              762341          Montes García, M.Pilar      MATEMATICAS
+15              213479          Ramos Ruiz Luis             LENGUA
+15              471982          Rivera Silvestre, Ana       DIBUJO
+15              192873          De Luas Fdez, M.Angel       LENGUA
+22              935723          Ruíz Lafuente, Manuel       MATEMATICAS
+45              612837          Serrano Laguía, María       INFORMÁTICA
+45                              Quiroga Martín, Isabel      INFORMÁTICA
+22              234012          Gómez Cárcel, Victor        HISTORIA
+
+INSERCIÓN CON SELECT
+---------------------
+
+INSERT INTO NombreTabla [(columna [, columna] ...)]
+SELECT { columna [, columna]...}
+FROM NombreTabla2 [CLÁUSULA DE SELECT];
+
+EMPLE30
+
+De esta manera es más específica:
+INSER INTO EMPLE (EMP_NO,APELLIDO,OFICIO,DIR,FECHA_ALTA,SALARIO,COMISION, DEPT_NO)
+SELECT EMP_NO,APELLIDO,OFICIO,DIR,FECHA_ALTA,SALARIO,COMISION, DEPT_NO FROM EMPLE30
+WHERE DEPT_NO = 30;
+
+De esta manera es para rellenar todas las columnas de un dato:
+INSERT INTO EMPLE30 SELECT * FROM EMPLE WHERE DEPR_NO = 30;
+
+tabla NOMBRES
+SQL -> DESC NOMBRES
+Nombre              ¿Nulo?          Tipo
+---------           ---------       --------
+NOMBRE                              VARCHAR(14)
+EDAD                                DECIMAL(2)
+
+Insertar en la tabla NOMBRES. en la columna NOMBRE, el APELLIDO de los empleados de la tabla EMPLE que sean del departamento 20.
+
+INSERT INTO NOMBRES (NOMBRE) SELECT APELLIDO FROM EMPLE WHERE DEPT_NO=20;
+
+EJERCICIO
+PROFESORES (
+ID INT AUTO_INCEMENT PRIMARY KEY,
+COD_CENTRO INT NOT NULL,
+DNI INT,
+APELLIDOS VARCHAR(30),
+ESPECIALIDAD VARCHAR(16)
+)
+
+1. Inserta un profesor con los siguientes datos
+    - Apellidos: García López, Juan
+    - Especialidad: MATEMATICAS
+    - Cod_centro: 10
+2. Inserta otro profesor indicando TODOS las columnas:
+    - ID: 100
+    - Cod_centro: 20
+    - DNI: 12345678
+3. Insertar dos profesores a la vez:
+    - (Sánchez Mora Luis, INFORMÁTICA, 30)
+    - Díaz Torres, Marta, DIBUJO, 15)
+4. Insertar un profesor sin COD_CENTRO
+
+INSERT INTO NOMBRES(APELLIDOS,ESPECIALIDAD,COD_CENTRO) SELECT APELLIDOS,ESPECIALIDAD,COD_CENTRO FROM PROFESORES
+VALUES ('García López, Juan','MATEMATICAS','10')
+
+INSERT INTO PROFESORES SELECT * FROM PROFESORES
+VALUES (100,20,'12345678','Ballester Chust, Eloy','MATEMATICAS',10);
+
+
+MODIFICACIÓN DE DATIS
+
+UPDATE NombreTabla
+SET columna1 = valor1, ..., columnan=valorn
+WHERE condición;
+
+Caso práctico
+Sea la tabla CENTROS, cambiamos la dirección del COD_CENTRO 22 a 'C/Pilón 13' y el número de plazas a 295:
+UPDATE CENTROS SET DIRECCIÓN= 'C/Pilón 13', NUM_PLAZAS =295;
+
+SELECT * FROM CENTROS;
+
+COD_CENTRO  NOMBRE              DIRECCIÓN      TELÉFONO    NUM_PLAZAS
+----------  ------              ---------      --------    ----------
+10          IES el quijote      C/Pilón 13      96123461    295
+15          IES LA SENIA        C/Pilón 13      96121271    295
+22          IES Juana de Arco   C/Pilón 13      96123912    295
+45          CP Juan Andrés      C/Pilón 13      96192763    295
+50          IES Antoñete        C/Pilón 13      93182683    295
+
+UPDATE CON SELECT
